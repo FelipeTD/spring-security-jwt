@@ -1,2 +1,2 @@
-# spring-security-jwt
-Projeto com utilização de Spring Security JWT
+# Spring Security JWT
+- Projeto com utilização de Spring Security JWT
