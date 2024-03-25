@@ -4,22 +4,22 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import tortora.spring.security.jwt.model.Usuario;
-import tortora.spring.security.jwt.service.UsuarioService;
+import tortora.spring.security.jwt.model.User;
+import tortora.spring.security.jwt.service.UserService;
 
 @RestController
 @RequestMapping("/users")
-public class UsuarioController {
+public class UserController {
 
-    private final UsuarioService service;
+    private UserService service;
 
-    public UsuarioController(UsuarioService service) {
+    public UserController(UserService service) {
         this.service = service;
     }
 
     @PostMapping
-    public void postUser(@RequestBody Usuario usuario) {
-        service.createUsuario(usuario);
+    public void postUser(@RequestBody User user){
+        service.createUser(user);
     }
 
 }

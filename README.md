@@ -1,8 +1,8 @@
 # Spring Security JWT
 - Projeto com utilização de Spring Security JWT
 
-## Não utilizar
+## Versão Antiga do Spring Security JWT
 - Esse projeto foi feito com ajuda do curso da DIO sobre Spring Boot
-- Não utilizar esse projeto com exemplo de Spring Security, pois a versão é de 2019
-- Utilize o link https://www.youtube.com/watch?v=EjrlN_OQVDQ
-- Nesse vídeo tem a explicação da utilização do Spring Security e JWT atualizada
+- Esse projeto com exemplo de Spring Security JWT utiliza a versão de 2019
+- Caso queria um guia mais recente utilize o endereço https://www.youtube.com/watch?v=EjrlN_OQVDQ
+- Nesse vídeo tem a explicação da utilização do Spring Security e JWT com data de 2024

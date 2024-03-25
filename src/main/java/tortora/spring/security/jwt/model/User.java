@@ -1,13 +1,12 @@
 package tortora.spring.security.jwt.model;
 
-import jakarta.persistence.*;
-
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class Usuario {
-
+@Table(name = "tab_user")
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_user")
@@ -23,15 +22,9 @@ public class Usuario {
     private String password;
 
     @ElementCollection(fetch = FetchType.EAGER)
-    @CollectionTable(name = "usuario_roles", joinColumns = @JoinColumn(name = "id_user"))
+    @CollectionTable(name = "tab_user_roles", joinColumns = @JoinColumn(name = "user_id"))
     @Column(name = "role_id")
     private List<String> roles = new ArrayList<>();
-
-    public Usuario() {}
-
-    public Usuario(String username) {
-        this.username = username;
-    }
 
     public Integer getId() {
         return id;
@@ -65,19 +58,12 @@ public class Usuario {
         this.password = password;
     }
 
-    public List<String> getRoles() { return roles; }
+    public List<String> getRoles() {
+        return roles;
+    }
 
-    public void setRoles(List<String> roles) { this.roles = roles; }
-
-    @Override
-    public String toString() {
-        return "Usuario{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                '}';
+    public void setRoles(List<String> roles) {
+        this.roles = roles;
     }
 
 }
-
