@@ -22,9 +22,11 @@ public class JWTCreator {
                 .claim(ROLES_AUTHORITIES, checkRoles(jwtObject.getRoles())).signWith(SignatureAlgorithm.HS512, key).compact();
         return prefix + " " + token;
     }
-    public static JWTObject create(String token,String prefix,String key) throws ExpiredJwtException, UnsupportedJwtException, MalformedJwtException, SignatureException {
+    public static JWTObject create(String token,String prefix,String key)
+            throws ExpiredJwtException, UnsupportedJwtException, MalformedJwtException, SignatureException {
         JWTObject object = new JWTObject();
         token = token.replace(prefix, "");
+        token = token.replace("Basic ", "");
         Claims claims = Jwts.parser().setSigningKey(key).parseClaimsJws(token).getBody();
         object.setSubject(claims.getSubject());
         object.setExpiration(claims.getExpiration());
